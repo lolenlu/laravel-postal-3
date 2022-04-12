@@ -14,5 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 use App\Http\Controllers;
 
-Route::any('{query}','App\Http\Controllers\HomeController@index')
-    ->where('query', '.*');
+Route::get('/', 'App\Http\Controllers\HomeController@index');
+Route::post('calc', 'App\Http\Controllers\HomeController@calcNumber');
+
+Route::any('{url}', function () {return redirect('/');})->where('url', '.*');
